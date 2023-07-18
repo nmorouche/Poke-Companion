@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Injector
 
 @main
 struct Poke_CompanionApp: App {
+    
+    @StateObject var appState = AppState()
+    
+    init() {
+        Locator.register(PokemonDetailServiceProtocol.self, mode: .newInstance) { PokemonDetailService() }
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(appState)
         }
     }
 }
