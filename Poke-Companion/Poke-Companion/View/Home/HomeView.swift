@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Poke-Companion
 //
 //  Created by Nassim Morouche on 17/07/2023.
@@ -8,9 +8,9 @@
 import SwiftUI
 import NetworkLayer
 
-struct ContentView: View {
+struct HomeView: View {
     
-    @StateObject var viewModel: ContentViewModel = .init()
+    @StateObject var viewModel: HomeViewModel = .init()
     @FocusState var isFocused: Bool
     
     var body: some View {
@@ -47,15 +47,12 @@ struct ContentView: View {
                 }
             }
         }
-        .task {
-            await viewModel.getPokemonDetail(byId: 1)
-        }
     }
     
     private var pokemonView: some View {
         VStack {
             if let pokemon = viewModel.pokemon {
-                CustomAsyncImage(url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.id).png")
+                CustomAsyncImage(url: pokemon.url)
                 Text(pokemon.name.capitalized)
             } else {
                 Image(systemName: "xmark.app")
@@ -69,8 +66,8 @@ struct ContentView: View {
     private var searchStack: some View {
         HStack {
             Spacer()
-            TextField("", text: $viewModel.text)
-                .keyboardType(.phonePad)
+            TextField("Enter an ID", text: $viewModel.text)
+                .keyboardType(.numberPad)
                 .focused($isFocused)
                 .padding(.vertical)
             Button {
@@ -97,8 +94,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }
