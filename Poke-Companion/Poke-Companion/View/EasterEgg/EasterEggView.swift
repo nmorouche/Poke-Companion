@@ -9,11 +9,11 @@ import SwiftUI
 
 struct EasterEggView: View {
     
-    let assets: [String] = ["asterion1", "asterion2", "asterion3"]
+    @StateObject var viewModel: EasterEggViewModel = .init()
     
     var body: some View {
         TabView {
-            ForEach(assets, id: \.self) { asset in
+            ForEach(viewModel.assets, id: \.self) { asset in
                 Image(asset)
                     .resizable()
                     .aspectRatio(contentMode: .fill)

@@ -18,6 +18,7 @@
 		5E2E81692A67115600FD7F11 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E81682A67115600FD7F11 /* UIDevice+Extension.swift */; };
 		5E2E816B2A67117500FD7F11 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E816A2A67117500FD7F11 /* UIWindow+Extension.swift */; };
 		5E2E816E2A6711A900FD7F11 /* ShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E816D2A6711A900FD7F11 /* ShakeViewModifier.swift */; };
+		5E2E81702A671DA600FD7F11 /* EasterEggViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E816F2A671DA600FD7F11 /* EasterEggViewModel.swift */; };
 		5E47E3C42A65F97F00AAB5DA /* Injector in Frameworks */ = {isa = PBXBuildFile; productRef = 5E47E3C32A65F97F00AAB5DA /* Injector */; };
 		5E47E3C72A65F98900AAB5DA /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 5E47E3C62A65F98900AAB5DA /* NetworkLayer */; };
 		5E47E3C92A66044000AAB5DA /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */; };
@@ -48,6 +49,7 @@
 		5E2E81682A67115600FD7F11 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		5E2E816A2A67117500FD7F11 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		5E2E816D2A6711A900FD7F11 /* ShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewModifier.swift; sourceTree = "<group>"; };
+		5E2E816F2A671DA600FD7F11 /* EasterEggViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggViewModel.swift; sourceTree = "<group>"; };
 		5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
 		5E573BBA2A65EAC10060C266 /* Poke-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E573BBD2A65EAC10060C266 /* Poke_CompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_CompanionApp.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				5E2E81662A670E7D00FD7F11 /* EasterEggView.swift */,
+				5E2E816F2A671DA600FD7F11 /* EasterEggViewModel.swift */,
 			);
 			path = EasterEgg;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				5E2E81672A670E7D00FD7F11 /* EasterEggView.swift in Sources */,
 				5E6A1AFB2A65EFCA00709467 /* Shaders.metal in Sources */,
 				5E6A1B122A65F5BA00709467 /* AppError.swift in Sources */,
+				5E2E81702A671DA600FD7F11 /* EasterEggViewModel.swift in Sources */,
 				5E2E81642A670B8200FD7F11 /* SearchViewModel.swift in Sources */,
 				5E6A1B0E2A65F54A00709467 /* PokemonDetailService.swift in Sources */,
 				5E6A1AFD2A65F0C000709467 /* LoaderView.swift in Sources */,
