@@ -34,6 +34,13 @@ struct RootView: View {
                 .environmentObject(appState)
                 .tag(Tab.menu)
         }
+        .alert(isPresented: $appState.displayEasterEggAlert, content: {
+            Alert(
+                title: Text("INCROYABLE"),
+                message: Text("Tu viens de débloquer le plus bel easter egg\n\nCheck les Settings"),
+                dismissButton: .cancel(Text("MERCI"))
+            )
+        })
     }
 }
 

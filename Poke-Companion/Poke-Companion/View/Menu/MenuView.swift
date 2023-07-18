@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
+                    if appState.displayEasterEgg {
+                        NavigationLink(destination: EasterEggView()) {
+                            Text("Asterion le bon")
+                        }
+                    }
                     NavigationLink(destination: Text("About us")) {
                         Text("About us")
                     }
@@ -25,10 +33,14 @@ struct MenuView: View {
                 }
             }
             .navigationTitle(Tab.menu.navigationTitle)
+            .onShake {
+                appState.displayEasterEgg.toggle()
+            }
         }
     }
 }
 
 #Preview {
     MenuView()
+        .environmentObject(AppState())
 }
