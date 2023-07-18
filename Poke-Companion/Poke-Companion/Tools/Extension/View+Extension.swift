@@ -8,11 +8,14 @@
 import SwiftUI
 
 extension View {
-    func
-    circleLoader(seconds: Double) -> some View {
+    func circleLoader(seconds: Double) -> some View {
         self
             .colorEffect(
                 ShaderLibrary.default.circleLoader(.boundingRect, .float(seconds))
             )
+    }
+    
+    func onShake(perform action: @escaping () -> Void) -> some View {
+        self.modifier(ShakeViewModifier(action: action))
     }
 }

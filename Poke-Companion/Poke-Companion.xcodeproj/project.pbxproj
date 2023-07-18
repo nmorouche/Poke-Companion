@@ -14,6 +14,10 @@
 		5E2E81602A66FE9400FD7F11 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E815F2A66FE9400FD7F11 /* AppInfo.swift */; };
 		5E2E81622A670B5D00FD7F11 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E81612A670B5D00FD7F11 /* SearchView.swift */; };
 		5E2E81642A670B8200FD7F11 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E81632A670B8200FD7F11 /* SearchViewModel.swift */; };
+		5E2E81672A670E7D00FD7F11 /* EasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E81662A670E7D00FD7F11 /* EasterEggView.swift */; };
+		5E2E81692A67115600FD7F11 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E81682A67115600FD7F11 /* UIDevice+Extension.swift */; };
+		5E2E816B2A67117500FD7F11 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E816A2A67117500FD7F11 /* UIWindow+Extension.swift */; };
+		5E2E816E2A6711A900FD7F11 /* ShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2E816D2A6711A900FD7F11 /* ShakeViewModifier.swift */; };
 		5E47E3C42A65F97F00AAB5DA /* Injector in Frameworks */ = {isa = PBXBuildFile; productRef = 5E47E3C32A65F97F00AAB5DA /* Injector */; };
 		5E47E3C72A65F98900AAB5DA /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 5E47E3C62A65F98900AAB5DA /* NetworkLayer */; };
 		5E47E3C92A66044000AAB5DA /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */; };
@@ -40,6 +44,10 @@
 		5E2E815F2A66FE9400FD7F11 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		5E2E81612A670B5D00FD7F11 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		5E2E81632A670B8200FD7F11 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		5E2E81662A670E7D00FD7F11 /* EasterEggView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggView.swift; sourceTree = "<group>"; };
+		5E2E81682A67115600FD7F11 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		5E2E816A2A67117500FD7F11 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		5E2E816D2A6711A900FD7F11 /* ShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeViewModifier.swift; sourceTree = "<group>"; };
 		5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
 		5E573BBA2A65EAC10060C266 /* Poke-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E573BBD2A65EAC10060C266 /* Poke_CompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_CompanionApp.swift; sourceTree = "<group>"; };
@@ -105,6 +113,22 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		5E2E81652A670E6C00FD7F11 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				5E2E81662A670E7D00FD7F11 /* EasterEggView.swift */,
+			);
+			path = EasterEgg;
+			sourceTree = "<group>";
+		};
+		5E2E816C2A67119D00FD7F11 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				5E2E816D2A6711A900FD7F11 /* ShakeViewModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
 		5E573BB12A65EAC10060C266 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				5E6A1AFF2A65F0FD00709467 /* View+Extension.swift */,
+				5E2E81682A67115600FD7F11 /* UIDevice+Extension.swift */,
+				5E2E816A2A67117500FD7F11 /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -163,6 +189,7 @@
 		5E6A1B012A65F1E500709467 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E2E81652A670E6C00FD7F11 /* EasterEgg */,
 				5E2E815C2A66F85200FD7F11 /* Search */,
 				5E2E815B2A66F84E00FD7F11 /* Home */,
 				5E2E815A2A66F84A00FD7F11 /* Menu */,
@@ -174,6 +201,7 @@
 		5E6A1B022A65F1EE00709467 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5E2E816C2A67119D00FD7F11 /* Modifier */,
 				5E2E81552A66C7AE00FD7F11 /* Utility */,
 				5E6A1B152A65F7F100709467 /* ViewModel */,
 				5E6A1B102A65F5AF00709467 /* Error */,
@@ -321,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6A1B092A65F48800709467 /* Pokemon.swift in Sources */,
+				5E2E81692A67115600FD7F11 /* UIDevice+Extension.swift in Sources */,
 				5E6A1B172A65F7FB00709467 /* BaseViewModel.swift in Sources */,
+				5E2E81672A670E7D00FD7F11 /* EasterEggView.swift in Sources */,
 				5E6A1AFB2A65EFCA00709467 /* Shaders.metal in Sources */,
 				5E6A1B122A65F5BA00709467 /* AppError.swift in Sources */,
 				5E2E81642A670B8200FD7F11 /* SearchViewModel.swift in Sources */,
@@ -333,9 +363,11 @@
 				5E2E815E2A66FACE00FD7F11 /* MenuView.swift in Sources */,
 				5E2E81622A670B5D00FD7F11 /* SearchView.swift in Sources */,
 				5E2E81572A66C7C100FD7F11 /* AppState.swift in Sources */,
+				5E2E816B2A67117500FD7F11 /* UIWindow+Extension.swift in Sources */,
 				5E2E81542A66C74900FD7F11 /* RootView.swift in Sources */,
 				5E47E3C92A66044000AAB5DA /* CustomAsyncImage.swift in Sources */,
 				5E2E81602A66FE9400FD7F11 /* AppInfo.swift in Sources */,
+				5E2E816E2A6711A900FD7F11 /* ShakeViewModifier.swift in Sources */,
 				5E2E81592A66C7E300FD7F11 /* Tab.swift in Sources */,
 				5E573BC02A65EAC10060C266 /* HomeView.swift in Sources */,
 				5E573BBE2A65EAC10060C266 /* Poke_CompanionApp.swift in Sources */,

@@ -20,4 +20,13 @@ final class AppState: ObservableObject {
             }
         }
     }
+    
+    @Published var displayEasterEgg: Bool = false {
+        didSet {
+            if displayEasterEgg {
+                displayEasterEggAlert = true
+            }
+        }
+    }
+    @Published var displayEasterEggAlert: Bool = false
 }
