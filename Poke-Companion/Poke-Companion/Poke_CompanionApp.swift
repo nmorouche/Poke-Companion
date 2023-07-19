@@ -14,7 +14,7 @@ struct Poke_CompanionApp: App {
     @StateObject var appState = AppState()
     
     init() {
-        Locator.register(PokemonDetailServiceProtocol.self, mode: .newInstance) { PokemonDetailService() }
+        Locator.register(PokemonService.self, mode: .newInstance) { PokemonService() }
     }
     
     var body: some Scene {

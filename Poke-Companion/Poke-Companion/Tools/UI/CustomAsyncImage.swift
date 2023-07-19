@@ -19,6 +19,7 @@ struct CustomAsyncImage: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
+                    .frame(width: width, height: height)
             } placeholder: {
                 Image(systemName: "camera.metering.unknown")
             }

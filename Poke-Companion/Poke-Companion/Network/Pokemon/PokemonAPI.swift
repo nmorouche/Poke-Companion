@@ -1,5 +1,5 @@
 //
-//  PokemonDetailAPI.swift
+//  PokemonAPI.swift
 //  Poke-Companion
 //
 //  Created by Nassim Morouche on 18/07/2023.
@@ -8,11 +8,12 @@
 import Foundation
 import NetworkLayer
 
-enum PokemonDetailAPI {
+enum PokemonAPI {
     case getPokemonDetail(id: Int)
+    case fetchPokemons(offset: Int, limit: Int)
 }
 
-extension PokemonDetailAPI: NetworkService {
+extension PokemonAPI: NetworkService {
     var baseURL: String {
         "https://pokeapi.co/api/v2/pokemon/"
     }
@@ -21,6 +22,8 @@ extension PokemonDetailAPI: NetworkService {
         switch self {
         case .getPokemonDetail(let id):
             return "\(id)"
+        default:
+            return ""
         }
     }
 
@@ -29,7 +32,15 @@ extension PokemonDetailAPI: NetworkService {
     }
 
     var parameters: [String : String]? {
-        nil
+        switch self {
+        case .fetchPokemons(let offset, let limit):
+            return [
+                "limit":"\(limit)",
+                "offset": "\(offset)"
+            ]
+        default:
+            return nil
+        }
     }
     
     var body: Data? {

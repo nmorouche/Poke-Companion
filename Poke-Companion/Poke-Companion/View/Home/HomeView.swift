@@ -12,55 +12,47 @@ struct HomeView: View {
     
     @StateObject var viewModel: HomeViewModel = .init()
     @FocusState var isFocused: Bool
+    var columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
     
     var body: some View {
-        VStack {
-            Spacer()
-            pokemonView
-            Spacer()
-            searchStack
-            Spacer()
-        }
-        .overlay {
-            if viewModel.isLoading {
-                LoaderView()
-            }
-        }
-        .alert(isPresented: $viewModel.isError, content: {
-            Alert(
-                title: Text("Error"),
-                message: Text("An error occured, please checked that the ID entered is correct."),
-                dismissButton: .cancel(Text("OK"))
-            )
-        })
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Done") {
-                    isFocused = false
-                    Task {
-                        if let idInput = Int(viewModel.text),
-                           viewModel.pokemon?.id != idInput {
-                            await viewModel.getPokemonDetail(byId: idInput)
-                        }
-                    }
+        NavigationView {
+            ScrollView {
+                VStack {
+                    pokemonList
                 }
             }
+            .overlay {
+                if viewModel.isLoading {
+                    LoaderView()
+                }
+            }
+            .alert(isPresented: $viewModel.isError) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("An error occured, please checked that the ID entered is correct."),
+                    dismissButton: .cancel(Text("OK"))
+                )
+            }
+            .navigationTitle(Tab.home.navigationTitle)
         }
     }
     
-    private var pokemonView: some View {
-        VStack {
-            if let pokemon = viewModel.pokemon {
-                CustomAsyncImage(url: pokemon.url)
-                Text(pokemon.name.capitalized)
-            } else {
-                Image(systemName: "xmark.app")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Unknown")
+    private var pokemonList: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(viewModel.pokemons) { pokemon in
+                HomeRowView(pokemon: pokemon)
+                    .task {
+                        if let lastId = viewModel.pokemons.last?.id,
+                           pokemon.id == lastId {
+                            await viewModel.fetchPokemons()
+                        }
+                    }
             }
         }
+        .padding()
     }
     
     private var searchStack: some View {
@@ -73,12 +65,6 @@ struct HomeView: View {
             Button {
                 if isFocused {
                     isFocused = false
-                }
-                Task {
-                    if let idInput = Int(viewModel.text),
-                       viewModel.pokemon?.id != idInput {
-                        await viewModel.getPokemonDetail(byId: idInput)
-                    }
                 }
             } label: {
                 Text("SEARCH")

@@ -12,8 +12,3 @@ final class SearchViewModel: BaseViewModel {
     @Published var searchText: String = ""
     @Published var searchType: SearchType = .name
 }
-
-enum SearchType {
-    case id
-    case name
-}

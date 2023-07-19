@@ -10,30 +10,35 @@ import Injector
 
 final class HomeViewModel: BaseViewModel {
     
-    @Published var pokemon: Pokemon?
+    @Published var pokemons: [Pokemon] = []
     @Published var text: String = ""
+    @Published var offset: Int = 0
+    private var limit: Int = 150
+    private var maximumPokemonsCount: Int = -1
     
-    @Inject var pokemonDetailService: PokemonDetailServiceProtocol
+    @Inject var pokemonService: PokemonService
     
     override init() {
         super.init()
         
         Task { [weak self] in
             guard let self else { return }
-            await getPokemonDetail(byId: 1)
+            await fetchPokemons()
         }
     }
     
     @MainActor
-    func getPokemonDetail(byId id: Int) async {
-        if isLoading { return }
+    func fetchPokemons() async {
+        if maximumPokemonsCount == offset || isLoading { return }
         
         isLoading = true
-        let result = await pokemonDetailService.getPokemonDetail(byId: id)
+        let result = await pokemonService.fetchPokemons(offset: offset, limit: limit)
         isLoading = false
+        offset += limit
         switch result {
-        case .success(let pokemon):
-            self.pokemon = pokemon
+        case .success((let count, let pokemons)):
+            self.maximumPokemonsCount = count
+            self.pokemons.append(contentsOf: pokemons)
         case .failure(let failure):
             error = failure
         }
