@@ -22,10 +22,15 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     pokemonList
+                    if !viewModel.pokemons.isEmpty && viewModel.isLoading {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .padding(.bottom)
+                    }
                 }
             }
             .overlay {
-                if viewModel.isLoading {
+                if viewModel.pokemons.isEmpty && viewModel.isLoading {
                     LoaderView()
                 }
             }
@@ -43,13 +48,15 @@ struct HomeView: View {
     private var pokemonList: some View {
         LazyVGrid(columns: columns) {
             ForEach(viewModel.pokemons) { pokemon in
-                HomeRowView(pokemon: pokemon)
-                    .task {
-                        if let lastId = viewModel.pokemons.last?.id,
-                           pokemon.id == lastId {
-                            await viewModel.fetchPokemons()
+                VStack(spacing: 5) {
+                    HomeRowView(pokemon: pokemon)
+                        .task {
+                            if let lastId = viewModel.pokemons.last?.id,
+                               pokemon.id == lastId {
+                                await viewModel.fetchPokemons()
+                            }
                         }
-                    }
+                }
             }
         }
         .padding()
