@@ -13,7 +13,7 @@ final class HomeViewModel: BaseViewModel {
     @Published var pokemons: [Pokemon] = []
     @Published var text: String = ""
     @Published var offset: Int = 0
-    private var limit: Int = 150
+    private var limit: Int = 24
     private var maximumPokemonsCount: Int = -1
     
     @Inject var pokemonService: PokemonService

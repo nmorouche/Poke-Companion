@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct LoaderView: View {
     var text: String = "Loading"
@@ -16,11 +17,13 @@ struct LoaderView: View {
                 .edgesIgnoringSafeArea(.all)
                 .opacity(0.5)
             
-            ProgressView(label: {
-                Text(text)
+            VStack {
+                LottieView(filename: "triopikeur", contentMode: .scaleAspectFill)
+                    .frame(width: 200, height: 50)
+                Text("Loading...")
                     .font(.custom("AvenirNext-Medium", size: 14))
-            })
-            .progressViewStyle(.circular)
+            }
+            .frame(width: 200, height: 100)
             .padding()
             .background(.white)
             .foregroundColor(.black)

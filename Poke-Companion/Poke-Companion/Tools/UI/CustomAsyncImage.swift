@@ -21,7 +21,9 @@ struct CustomAsyncImage: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: width, height: height)
             } placeholder: {
-                Image(systemName: "camera.metering.unknown")
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .tint(.black)
             }
             .frame(width: width, height: height)
         }

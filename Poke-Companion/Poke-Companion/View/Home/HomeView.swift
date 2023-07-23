@@ -23,9 +23,15 @@ struct HomeView: View {
                 VStack {
                     pokemonList
                     if !viewModel.pokemons.isEmpty && viewModel.isLoading {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .padding(.bottom)
+                        HStack {
+                            LottieView(filename: "pokeball")
+                                .frame(width: 20)
+                            LottieView(filename: "pokeball")
+                                .frame(width: 20)
+                            LottieView(filename: "pokeball")
+                                .frame(width: 20)
+                        }
+                        .frame(width: 300, height: 50)
                     }
                 }
             }
@@ -87,8 +93,6 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+#Preview {
+    HomeView()
 }

@@ -42,6 +42,8 @@
 		5E6A1B122A65F5BA00709467 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A1B112A65F5BA00709467 /* AppError.swift */; };
 		5E6A1B142A65F65E00709467 /* PokemonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A1B132A65F65E00709467 /* PokemonAPI.swift */; };
 		5E6A1B172A65F7FB00709467 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A1B162A65F7FB00709467 /* BaseViewModel.swift */; };
+		5EEA542E2A6DA1A700BCFDB2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5EEA542D2A6DA1A700BCFDB2 /* Lottie */; };
+		5EEA54302A6DA41A00BCFDB2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA542F2A6DA41A00BCFDB2 /* LottieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,7 @@
 		5E6A1B112A65F5BA00709467 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5E6A1B132A65F65E00709467 /* PokemonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPI.swift; sourceTree = "<group>"; };
 		5E6A1B162A65F7FB00709467 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		5EEA542F2A6DA41A00BCFDB2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			files = (
 				5E47E3C42A65F97F00AAB5DA /* Injector in Frameworks */,
 				5E47E3C72A65F98900AAB5DA /* NetworkLayer in Frameworks */,
+				5EEA542E2A6DA1A700BCFDB2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +250,7 @@
 				5E6A1AFC2A65F0C000709467 /* AnimatedLoader.swift */,
 				5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */,
 				5E2E817F2A6864C700FD7F11 /* LoaderView.swift */,
+				5EEA542F2A6DA41A00BCFDB2 /* LottieView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			packageProductDependencies = (
 				5E47E3C32A65F97F00AAB5DA /* Injector */,
 				5E47E3C62A65F98900AAB5DA /* NetworkLayer */,
+				5EEA542D2A6DA1A700BCFDB2 /* Lottie */,
 			);
 			productName = "Poke-Companion";
 			productReference = 5E573BBA2A65EAC10060C266 /* Poke-Companion.app */;
@@ -353,6 +359,7 @@
 			packageReferences = (
 				5E47E3C22A65F97F00AAB5DA /* XCLocalSwiftPackageReference "Packages/Injector" */,
 				5E47E3C52A65F98900AAB5DA /* XCLocalSwiftPackageReference "Packages/NetworkLayer" */,
+				5EEA542C2A6DA1A700BCFDB2 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 5E573BBB2A65EAC10060C266 /* Products */;
 			projectDirPath = "";
@@ -403,6 +410,7 @@
 				5E2E81542A66C74900FD7F11 /* RootView.swift in Sources */,
 				5E47E3C92A66044000AAB5DA /* CustomAsyncImage.swift in Sources */,
 				5E2E81602A66FE9400FD7F11 /* AppInfo.swift in Sources */,
+				5EEA54302A6DA41A00BCFDB2 /* LottieView.swift in Sources */,
 				5E2E816E2A6711A900FD7F11 /* ShakeViewModifier.swift in Sources */,
 				5E2E817E2A685E2400FD7F11 /* BubbleTypeView.swift in Sources */,
 				5E2E81592A66C7E300FD7F11 /* Tab.swift in Sources */,
@@ -627,6 +635,17 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		5EEA542C2A6DA1A700BCFDB2 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		5E47E3C32A65F97F00AAB5DA /* Injector */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -635,6 +654,11 @@
 		5E47E3C62A65F98900AAB5DA /* NetworkLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkLayer;
+		};
+		5EEA542D2A6DA1A700BCFDB2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EEA542C2A6DA1A700BCFDB2 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
