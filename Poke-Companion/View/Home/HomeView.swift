@@ -48,12 +48,13 @@ struct HomeView: View {
                 )
             }
             .navigationTitle(Tab.home.navigationTitle)
+            .searchable(text: $viewModel.searchText)
         }
     }
     
     private var pokemonList: some View {
         LazyVGrid(columns: columns) {
-            ForEach(viewModel.pokemons) { pokemon in
+            ForEach(viewModel.filteredPokemons) { pokemon in
                 VStack(spacing: 5) {
                     HomeRowView(pokemon: pokemon)
                         .task {
@@ -65,30 +66,6 @@ struct HomeView: View {
                 }
             }
         }
-        .padding()
-    }
-    
-    private var searchStack: some View {
-        HStack {
-            Spacer()
-            TextField("Enter an ID", text: $viewModel.text)
-                .keyboardType(.numberPad)
-                .focused($isFocused)
-                .padding(.vertical)
-            Button {
-                if isFocused {
-                    isFocused = false
-                }
-            } label: {
-                Text("SEARCH")
-                    .bold()
-            }
-            .padding(.vertical)
-            
-            Spacer()
-        }
-        .background(Color.gray.opacity(0.4))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding()
     }
 }

@@ -11,10 +11,15 @@ import Injector
 final class HomeViewModel: BaseViewModel {
     
     @Published var pokemons: [Pokemon] = []
-    @Published var text: String = ""
+    @Published var searchText: String = ""
     @Published var offset: Int = 0
-    private var limit: Int = 24
+    private var limit: Int = 100
     private var maximumPokemonsCount: Int = -1
+    
+    var filteredPokemons: [Pokemon] {
+        guard !searchText.isEmpty else { return pokemons }
+        return pokemons.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+    }
     
     @Inject var pokemonService: PokemonService
     
