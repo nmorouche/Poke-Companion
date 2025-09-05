@@ -1,50 +1,29 @@
 //
-//  RootView.swift
+//  Untitled.swift
 //  Poke-Companion
 //
-//  Created by Nassim Morouche on 18/07/2023.
+//  Created by Nassim Morouche on 11/06/2025.
 //
 
 import SwiftUI
+import AppRouter
 
 struct RootView: View {
-    
-    @EnvironmentObject var appState: AppState
+    @Environment(Router.self) var router
+    let tabs: [AppTab] = AppTab.allCases
     
     var body: some View {
-        TabView(selection: $appState.selectedTab) {
-            SearchView()
-                .tabItem {
-                    Label(Tab.search.navigationTitle, systemImage: "magnifyingglass")
+        @Bindable var router = router
+        TabView(selection: $router.selectedTab) {
+            ForEach(tabs) { tab in
+                Tab(value: tab, role: tab == .search ? .search : .none) {
+                    AppTabView(tab: tab)
+                } label: {
+                    Label(tab.title, systemImage: tab.icon)
                 }
-                .environmentObject(appState)
-                .tag(Tab.search)
-            
-            HomeView()
-                .tabItem {
-                    Label(Tab.home.navigationTitle, systemImage: "house")
-                }
-                .environmentObject(appState)
-                .tag(Tab.home)
-            
-            MenuView()
-                .tabItem {
-                    Label(Tab.menu.navigationTitle, systemImage: "ellipsis")
-                }
-                .environmentObject(appState)
-                .tag(Tab.menu)
+            }
         }
-        .alert(isPresented: $appState.displayEasterEggAlert, content: {
-            Alert(
-                title: Text("INCROYABLE"),
-                message: Text("Tu viens de débloquer le plus bel easter egg\n\nCheck les Settings"),
-                dismissButton: .cancel(Text("MERCI"))
-            )
-        })
+        .tint(.black)
+        .tabBarMinimizeBehavior(.onScrollDown)
     }
-}
-
-#Preview {
-    RootView()
-        .environmentObject(AppState())
 }

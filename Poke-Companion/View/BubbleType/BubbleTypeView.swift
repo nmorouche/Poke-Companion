@@ -9,23 +9,26 @@ import SwiftUI
 
 struct BubbleTypeView: View {
     
-    let types: [PokemonType]
+    let type: PokemonType
+    var fontSize: CGFloat = 11.0
     
     var body: some View {
-        VStack(spacing: 5) {
-            ForEach(types, id: \.rawValue) { type in
-                Text(type.rawValue.capitalized)
-                    .font(.custom("AvenirNext-Bold", size: 11))
-                    .frame(width: 45)
-                    .padding(.horizontal)
-                    .background(in: RoundedRectangle(cornerRadius: 25))
-                    .backgroundStyle(.white.opacity(0.5))
-                    .foregroundStyle(.white)
-            }
+        VStack {
+            Text(type.rawValue.capitalized)
+                .font(.custom("AvenirNext-Bold", size: fontSize))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 4)
+                .background(
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color(hex: type.colorCode))
+                        .stroke(.white.opacity(0.4), lineWidth: 0.5)
+                        .glassEffect()
+                )
         }
     }
 }
 
 #Preview {
-    BubbleTypeView(types: [.dark, .dragon])
+    BubbleTypeView(type: .dragon)
 }

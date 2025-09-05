@@ -28,8 +28,8 @@ using namespace metal;
     float circle = -cos((uv.x - scaledTime) * PI2 * cols) * cos((uv.y + scaledTime) * PI2 * circle_rows);
     float stepCircle = step(circle, -sin(secs + uv.x - uv.y));
 
-    vector_float4 background = vector_float4(0.2, 0.6, 0.6, 1.0);
-    vector_float4 circles = vector_float4(0, 0.8, 0.8, 1.0);
+    vector_float4 background = vector_float4(0, 0, 0, 1.0);
+    vector_float4 circles = vector_float4(0.5, 0, 0, 1.0);
 
     return half4(mix(background, circles, stepCircle));
 }

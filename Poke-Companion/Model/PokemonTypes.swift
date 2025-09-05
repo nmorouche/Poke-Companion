@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum PokemonType: String, Codable {
+enum PokemonType: String, Codable, CaseIterable, Identifiable {
+    var id: String { rawValue }
     case normal = "normal"
     case fighting = "fighting"
     case flying = "flying"
@@ -70,13 +71,16 @@ enum PokemonType: String, Codable {
             "#A0FF7A"
         }
     }
+    
+    static var mainTypes: [PokemonType] {
+        [.fire, .water, .grass, .electric, .psychic, .dragon]
+    }
 }
 
-struct PokemonTypes: Codable {
+struct PokemonTypes: Codable, Equatable, Hashable {
     let name: PokemonType
     let url: String
+    
+    static var mockedType: PokemonTypes = .init(name: .bug, url: "")
 }
 
-extension PokemonTypes {
-    static var mockedPokemonTypes: PokemonTypes = .init(name: .grass, url: "")
-}
