@@ -9,19 +9,21 @@ import SwiftUI
 import NetworkLayer
 
 struct HomeView: View {
-    
+    @Environment(Router.self) var router
     @StateObject var viewModel: HomeViewModel = .init()
-    @FocusState var isFocused: Bool
+    @Namespace var namespace
+    
     var columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
     
     var body: some View {
-        NavigationView {
+        ScrollViewReader { proxy in
             ScrollView {
-                VStack {
+                VStack(spacing: 0) {
                     pokemonList
+                    
                     if !viewModel.pokemons.isEmpty && viewModel.isLoading {
                         HStack {
                             LottieView(filename: "pokeball")
@@ -35,32 +37,33 @@ struct HomeView: View {
                     }
                 }
             }
+            .safeAreaInset(edge: .top, spacing: 0) {
+                toolbarView
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+            }
             .overlay {
                 if viewModel.pokemons.isEmpty && viewModel.isLoading {
                     LoaderView()
                 }
             }
-            .alert(isPresented: $viewModel.isError) {
-                Alert(
-                    title: Text("Error"),
-                    message: Text("An error occured, please checked that the ID entered is correct."),
-                    dismissButton: .cancel(Text("OK"))
-                )
-            }
-            .navigationTitle(Tab.home.navigationTitle)
-            .searchable(text: $viewModel.searchText)
         }
     }
     
     private var pokemonList: some View {
         LazyVGrid(columns: columns) {
-            ForEach(viewModel.filteredPokemons) { pokemon in
+            ForEach(Array(viewModel.pokemons.enumerated()), id: \.element.id) { index, pokemon in
                 VStack(spacing: 5) {
                     HomeRowView(pokemon: pokemon)
-                        .task {
-                            if let lastId = viewModel.pokemons.last?.id,
-                               pokemon.id == lastId {
-                                await viewModel.fetchPokemons()
+                        .onTapGesture {
+                            guard let pokemonIndex = viewModel.pokemons.firstIndex(of: pokemon) else { return }
+                            router.navigateTo(.detail(viewModel.pokemons, pokemonIndex))
+                        }
+                        .onAppear {
+                            if shouldLoadMore(for: index) {
+                                Task {
+                                    await viewModel.fetchPokemons()
+                                }
                             }
                         }
                 }
@@ -68,8 +71,25 @@ struct HomeView: View {
         }
         .padding()
     }
+    
+    private func shouldLoadMore(for index: Int) -> Bool {
+        let threshold = 5 // Load more when 5 items from the end
+        return viewModel.hasMorePokemons() && 
+               index >= viewModel.pokemons.count - threshold
+    }
+    
+    @State private var isFilterExpanded = false
+    
+    private var toolbarView: some View {
+        PokemonFilterToolbarView(
+            selectedFilter: $viewModel.selectedFilter,
+            isFilterExpanded: $isFilterExpanded
+        )
+    }
+    
 }
 
 #Preview {
     HomeView()
+        .environment(Router(initialTab: .home))
 }

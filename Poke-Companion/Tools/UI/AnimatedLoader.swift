@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AnimatedLoader: View {
     
-    let start = Date()
+    let startTime: Date = Date()
     
     var body: some View {
         VStack {
@@ -17,7 +17,7 @@ struct AnimatedLoader: View {
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundStyle(.white)
                     .circleLoader(
-                        seconds: context.date.timeIntervalSince1970 - self.start.timeIntervalSince1970
+                        seconds: context.date.timeIntervalSince1970 - startTime.timeIntervalSince1970
                     )
             }
             .ignoresSafeArea()

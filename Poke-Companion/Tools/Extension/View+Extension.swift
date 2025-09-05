@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Metal
 
 extension View {
     func circleLoader(seconds: Double) -> some View {
@@ -15,7 +16,7 @@ extension View {
             )
     }
     
-    func onShake(perform action: @escaping () -> Void) -> some View {
-        self.modifier(ShakeViewModifier(action: action))
+    func withAppDestination() -> some View {
+        modifier(AppDestination())
     }
 }

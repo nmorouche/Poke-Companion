@@ -7,16 +7,14 @@
 
 import Foundation
 
-struct TypesResult: Codable {
+struct TypesResult: Codable, Equatable, Hashable {
     let slot: Int
     let type: PokemonTypes
+    
+    static var mockedTypesResult: TypesResult = .init(slot: 1, type: .mockedType)
 }
 
-extension TypesResult {
-    static var mockedTypesResult: TypesResult = .init(slot: 0, type: .mockedPokemonTypes)
-}
-
-struct Pokemon: Codable, Identifiable {
+struct Pokemon: Codable, Identifiable, Equatable, Hashable {
     let id: Int
     let name: String
     let order: Int
@@ -29,7 +27,7 @@ struct Pokemon: Codable, Identifiable {
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(id).png"
     }
     
-    private enum CodingKeys: String, CodingKey, Codable {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
         case order
@@ -39,4 +37,9 @@ struct Pokemon: Codable, Identifiable {
 
 extension Pokemon {
     static var mockedPokemon: Pokemon = .init(id: 1, name: "Bulbizarre", order: 1, typesValue: [.mockedTypesResult])
+    static var mockedPokemon2: Pokemon = .init(id: 2, name: "Salameche", order: 2, typesValue: [.mockedTypesResult])
+    static var mockedPokemons: [Pokemon] = [
+        mockedPokemon,
+        mockedPokemon2
+    ]
 }

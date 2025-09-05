@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct CustomAsyncImage: View {
     
@@ -15,15 +16,26 @@ struct CustomAsyncImage: View {
     
     var body: some View {
         if let url = URL(string: url) {
-            AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: width, height: height)
-            } placeholder: {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .tint(.black)
+            LazyImage(url: url) { state in
+                if let image = state.image {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } else if state.error != nil {
+                    Color
+                        .gray
+                        .overlay(
+                            Image(systemName: "photo.on.rectangle")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.white)
+                                .scaleEffect(0.3)
+                                .opacity(0.8)
+                                .padding(.horizontal)
+                        )
+                } else {
+                    ProgressView()
+                }
             }
             .frame(width: width, height: height)
         }
