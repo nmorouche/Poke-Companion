@@ -21,13 +21,12 @@ struct LoaderView: View {
                 LottieView(filename: "triopikeur", contentMode: .scaleAspectFill)
                     .frame(width: 200, height: 50)
                 Text("Loading...")
-                    .font(.custom("AvenirNext-Medium", size: 14))
+                    .font(.custom("AvenirNext-Bold", size: 18))
             }
             .frame(width: 200, height: 100)
             .padding()
-            .background(.white)
-            .foregroundColor(.black)
-            .tint(.black)
+            .foregroundColor(.white)
+            .tint(.white)
             .cornerRadius(10)
         }
     }

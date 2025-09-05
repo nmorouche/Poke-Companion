@@ -29,7 +29,11 @@ struct HomeRowView: View {
                     Text(pokemon.name.capitalized)
                         .font(.custom("AvenirNext-Heavy", size: 14))
                         .foregroundStyle(.white)
-                    BubbleTypeView(types: pokemon.types)
+                    VStack(spacing: 5) {
+                        ForEach(pokemon.types) { type in
+                            BubbleTypeView(type: type)
+                        }
+                    }
                     Spacer()
                 }
                 .padding(.top, 10)

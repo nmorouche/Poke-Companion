@@ -1,5 +1,5 @@
 {
-  "originHash" : "444fcf9c0ce7ae8246c9cbd5f93258875fa633fe49f974a8d9a6b1401a8b461c",
+  "originHash" : "8e30404e5edce9dbb4a3c62385e8e70538e5a4a8e5c69660bd3a0cb003767b43",
   "pins" : [
     {
       "identity" : "lottie-spm",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "60ea4f82fba8b4cb21a75665a889e86ed4d81c6e",
         "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke",
+      "state" : {
+        "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
+        "version" : "12.8.0"
       }
     }
   ],
