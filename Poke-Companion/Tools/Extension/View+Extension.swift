@@ -15,8 +15,4 @@ extension View {
                 ShaderLibrary.default.circleLoader(.boundingRect, .float(seconds))
             )
     }
-    
-    func withAppDestination() -> some View {
-        modifier(AppDestination())
-    }
 }
