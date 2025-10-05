@@ -16,7 +16,7 @@ struct Poke_CompanionApp: App {
     @State var router: Router = .init(initialTab: .home)
     
     init() {
-        Locator.register(PokemonService.self, mode: .newInstance) { PokemonService() }
+        Locator.register(PokemonServiceProtocol.self, mode: .newInstance) { PokemonService() }
         ImagePipeline.shared = ImagePipeline(configuration: .withDataCache)
     }
     

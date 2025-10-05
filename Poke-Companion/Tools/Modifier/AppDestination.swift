@@ -13,11 +13,17 @@ struct AppDestination: ViewModifier {
         content
             .navigationDestination(for: RouterDestination.self) { destination in
                 switch destination {
-                case .detail(let pokemons, let index):
-                    PokemonDetailView(pokemons: pokemons, index: index)
+                case .detail(let pokemon):
+                    PokemonDetailView(pokemon: pokemon)
                 case .about:
                     EmptyView()
                 }
             }
+    }
+}
+
+extension View {
+    func withAppDestination() -> some View {
+        modifier(AppDestination())
     }
 }

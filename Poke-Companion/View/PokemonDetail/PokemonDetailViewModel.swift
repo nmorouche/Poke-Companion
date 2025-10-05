@@ -10,15 +10,9 @@ import Injector
 
 @Observable
 final class PokemonDetailViewModel: BaseViewModel {
-    var pokemons: [Pokemon]
-    var index: Int
+    var pokemon: Pokemon
     
-    var currentPokemon: Pokemon {
-        pokemons[index]
-    }
-    
-    init(pokemons: [Pokemon], index: Int) {
-        self.pokemons = pokemons
-        self.index = index
+    init(pokemon: Pokemon) {
+        self.pokemon = pokemon
     }
 }

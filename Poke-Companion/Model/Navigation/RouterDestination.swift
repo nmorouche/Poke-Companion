@@ -12,6 +12,6 @@ enum RouterDestination: DestinationType, Hashable {
         nil
     }
     
-    case detail([Pokemon], Int)
+    case detail(Pokemon)
     case about
 }

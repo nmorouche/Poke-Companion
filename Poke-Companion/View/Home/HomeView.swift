@@ -11,7 +11,6 @@ import NetworkLayer
 struct HomeView: View {
     @Environment(Router.self) var router
     @StateObject var viewModel: HomeViewModel = .init()
-    @Namespace var namespace
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -56,8 +55,7 @@ struct HomeView: View {
                 VStack(spacing: 5) {
                     HomeRowView(pokemon: pokemon)
                         .onTapGesture {
-                            guard let pokemonIndex = viewModel.pokemons.firstIndex(of: pokemon) else { return }
-                            router.navigateTo(.detail(viewModel.pokemons, pokemonIndex))
+                            router.navigateTo(.detail(pokemon))
                         }
                         .onAppear {
                             if shouldLoadMore(for: index) {

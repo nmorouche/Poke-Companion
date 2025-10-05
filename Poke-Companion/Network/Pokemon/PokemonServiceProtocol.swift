@@ -74,6 +74,7 @@ class PokemonService: PokemonServiceProtocol {
                 let pokemonDetailDTO = try JSONDecoder().decode(Pokemon.self, from: data)
                 return .success(pokemonDetailDTO)
             } catch {
+                print(error)
                 return .failure(.generic)
             }
         case .failure(_):

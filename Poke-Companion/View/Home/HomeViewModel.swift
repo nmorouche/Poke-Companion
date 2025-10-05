@@ -10,9 +10,9 @@ import Injector
 
 final class HomeViewModel: BaseViewModel {
     
-    @Inject var pokemonService: PokemonService
+    @Inject var pokemonService: PokemonServiceProtocol
 
-    @Published private var _pokemons: [Pokemon] = []
+    @Published internal var _pokemons: [Pokemon] = []
     @Published var searchText: String = ""
     @Published var offset: Int = 0
     @Published var selectedFilter: PokemonType?
