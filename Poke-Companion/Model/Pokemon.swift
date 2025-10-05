@@ -40,13 +40,13 @@ struct Pokemon: Codable, Identifiable, Equatable, Hashable {
     let id: Int
     let name: String
     let order: Int
-    private let typesValue: [TypesResult]
+    internal let typesValue: [TypesResult]
     var types: [PokemonType] {
         typesValue.compactMap { $0.type.name }
     }
     let abilities: [Abilities]
-    private let baseHeight: Int
-    private let baseWeight: Int
+    internal let baseHeight: Int
+    internal let baseWeight: Int
     var height: Float {
         Float(baseHeight) / 10
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,6 +60,16 @@
 		5EEA54302A6DA41A00BCFDB2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA542F2A6DA41A00BCFDB2 /* LottieView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E2F67202E92DCC200168E17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E573BB22A65EAC10060C266 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E573BB92A65EAC10060C266;
+			remoteInfo = "Poke-Companion";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5E2E81532A66C74900FD7F11 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		5E2E815D2A66FACE00FD7F11 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -75,6 +85,7 @@
 		5E2E817A2A684FF900FD7F11 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5E2E817D2A685E2400FD7F11 /* BubbleTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTypeView.swift; sourceTree = "<group>"; };
 		5E2E817F2A6864C700FD7F11 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		5E2F671C2E92DCC200168E17 /* Poke-CompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poke-CompanionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47E3C82A66044000AAB5DA /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
 		5E573BBA2A65EAC10060C266 /* Poke-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E573BBD2A65EAC10060C266 /* Poke_CompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_CompanionApp.swift; sourceTree = "<group>"; };
@@ -107,7 +118,18 @@
 		5EEA542F2A6DA41A00BCFDB2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5E2F671D2E92DCC200168E17 /* Poke-CompanionTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Poke-CompanionTests"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		5E2F67192E92DCC200168E17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E573BB72A65EAC10060C266 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,6 +206,7 @@
 			children = (
 				5E573BBC2A65EAC10060C266 /* Poke-Companion */,
 				5E573BBD2A65EAC10060C266 /* Poke_CompanionApp.swift */,
+				5E2F671D2E92DCC200168E17 /* Poke-CompanionTests */,
 				5E573BBB2A65EAC10060C266 /* Products */,
 				5E94A6CF2A65EF64002F53D7 /* Frameworks */,
 			);
@@ -193,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				5E573BBA2A65EAC10060C266 /* Poke-Companion.app */,
+				5E2F671C2E92DCC200168E17 /* Poke-CompanionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,6 +395,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E2F671B2E92DCC200168E17 /* Poke-CompanionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2F67222E92DCC200168E17 /* Build configuration list for PBXNativeTarget "Poke-CompanionTests" */;
+			buildPhases = (
+				5E2F67182E92DCC200168E17 /* Sources */,
+				5E2F67192E92DCC200168E17 /* Frameworks */,
+				5E2F671A2E92DCC200168E17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E2F67212E92DCC200168E17 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5E2F671D2E92DCC200168E17 /* Poke-CompanionTests */,
+			);
+			name = "Poke-CompanionTests";
+			packageProductDependencies = (
+			);
+			productName = "Poke-CompanionTests";
+			productReference = 5E2F671C2E92DCC200168E17 /* Poke-CompanionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5E573BB92A65EAC10060C266 /* Poke-Companion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E573BC82A65EAC20060C266 /* Build configuration list for PBXNativeTarget "Poke-Companion" */;
@@ -405,9 +452,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					5E2F671B2E92DCC200168E17 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 5E573BB92A65EAC10060C266;
+					};
 					5E573BB92A65EAC10060C266 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -434,11 +485,19 @@
 			projectRoot = "";
 			targets = (
 				5E573BB92A65EAC10060C266 /* Poke-Companion */,
+				5E2F671B2E92DCC200168E17 /* Poke-CompanionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E2F671A2E92DCC200168E17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E573BB82A65EAC10060C266 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +510,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E2F67182E92DCC200168E17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E573BB62A65EAC10060C266 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,7 +567,66 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E2F67212E92DCC200168E17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E573BB92A65EAC10060C266 /* Poke-Companion */;
+			targetProxy = 5E2F67202E92DCC200168E17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5E2F67232E92DCC200168E17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9SKDF3Q9A6;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nassim.Poke-CompanionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poke-Companion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Poke-Companion";
+			};
+			name = Debug;
+		};
+		5E2F67242E92DCC200168E17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9SKDF3Q9A6;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nassim.Poke-CompanionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poke-Companion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Poke-Companion";
+			};
+			name = Release;
+		};
 		5E573BC62A65EAC20060C266 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -687,6 +812,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E2F67222E92DCC200168E17 /* Build configuration list for PBXNativeTarget "Poke-CompanionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2F67232E92DCC200168E17 /* Debug */,
+				5E2F67242E92DCC200168E17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5E573BB52A65EAC10060C266 /* Build configuration list for PBXProject "Poke-Companion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
